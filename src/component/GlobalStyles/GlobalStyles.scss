@@ -4,6 +4,9 @@
    --primary: red;
    --default-header-width: 1150px;
    --default-header-height: 60px;
+   --text-color: #161823;
+   --primary-color: rgba(254, 44, 85, 1);
+   --white-color: #fff;
 }
 * {
    padding: 0;
@@ -23,4 +26,8 @@ input,
 button {
    border: none;
    outline: none;
+}
+a[href] {
+   outline: none;
+   text-decoration: none;
 }

@@ -1,0 +1,19 @@
+.menu-list {
+   width: 223px;
+   .menu-item {
+      margin-left: 0px;
+   }
+}
+.menu-popper {
+   padding-bottom: 8px;
+}
+// Menu Item
+.menu-item {
+   display: inline-block;
+   width: 100%;
+   text-align: left;
+   height: 42px;
+   &:hover {
+      background: rgba(22, 24, 35, 0.03);
+   }
+}

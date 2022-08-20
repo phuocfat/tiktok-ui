@@ -17,6 +17,7 @@
    justify-content: space-between;
    align-items: center;
    width: var(--default-header-width);
+   padding: 0 24px 0 20px;
    height: 100%;
 }
 .search,
@@ -82,15 +83,5 @@
    }
    &:active {
       background-color: rgba(22, 24, 35, 0.06);
-   }
-}
-
-.more-icon {
-   background-color: transparent;
-   padding: 0 4px;
-   margin-left: 16px;
-   svg {
-      width: 2rem;
-      height: 2rem;
    }
 }

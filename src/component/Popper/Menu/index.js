@@ -10,6 +10,7 @@ function Menu({ items = [], children }) {
    const renderItems = () => {
       return items.map((item, index) => <MenuItem key={index} data={item} />);
    };
+   //
    return (
       <Tippy
          placement="bottom-end"

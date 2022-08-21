@@ -89,6 +89,11 @@ function Header() {
                </Button>
                <Button primary>Login</Button>
             </div>
+            <Menu items={MENU_ITEMS}>
+               <button className={cx('more-icon')}>
+                  <FontAwesomeIcon icon={faEllipsisVertical} />
+               </button>
+            </Menu>
          </div>
       </header>
    );

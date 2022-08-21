@@ -87,12 +87,7 @@ function Header() {
                <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                   Upload
                </Button>
-               <Button primary>Log in</Button>
-               <Menu items={MENU_ITEMS}>
-                  <button className={cx('more-icon')}>
-                     <FontAwesomeIcon icon={faEllipsisVertical} />
-                  </button>
-               </Menu>
+               <Button primary>Login</Button>
             </div>
          </div>
       </header>

@@ -26,6 +26,32 @@ const MENU_ITEMS = [
    {
       icon: <FontAwesomeIcon icon={faLanguage} />,
       title: 'Enghlish',
+      children: {
+         title: 'Languages',
+         data: [
+            {
+               code: 'vi',
+               title: 'Vietnamese',
+               children: {
+                  title: 'Languages',
+                  data: [
+                     {
+                        code: 'vi',
+                        title: 'Vietnamese1',
+                     },
+                     {
+                        code: 'en',
+                        title: 'Enghlish1',
+                     },
+                  ],
+               },
+            },
+            {
+               code: 'en',
+               title: 'Enghlish',
+            },
+         ],
+      },
    },
    {
       icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -42,6 +68,9 @@ function Header() {
    // useEffect(() => {
    //    setReSults([1, 2, 4]);
    // }, []);
+   const handleOnChange = (menuItem) => {
+      console.log(menuItem);
+   };
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
@@ -88,12 +117,12 @@ function Header() {
                   Upload
                </Button>
                <Button primary>Login</Button>
+               <Menu items={MENU_ITEMS} onChange={handleOnChange}>
+                  <button className={cx('more-icon')}>
+                     <FontAwesomeIcon icon={faEllipsisVertical} />
+                  </button>
+               </Menu>
             </div>
-            <Menu items={MENU_ITEMS}>
-               <button className={cx('more-icon')}>
-                  <FontAwesomeIcon icon={faEllipsisVertical} />
-               </button>
-            </Menu>
          </div>
       </header>
    );

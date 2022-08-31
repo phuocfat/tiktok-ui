@@ -37,3 +37,9 @@
    left: 50%;
    transform: translate(-50%, -50%);
 }
+//custom tippy border-top
+.separate {
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+   border-top: 1px solid rgba(22, 24, 35, 0.12);
+}

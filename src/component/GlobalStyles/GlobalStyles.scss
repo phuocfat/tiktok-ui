@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,600;1,700&display=swap');
 :root {
    --primary: red;
    --default-header-width: 1150px;
@@ -18,11 +17,32 @@ html {
    font-size: 62.5%;
 }
 body {
-   font-family: 'Source Sans Pro', sans-serif;
+   font-family: 'Proxima-Nova', sans-serif;
    --webkit-font-smoothing: antialiased;
    scroll-behavior: smooth;
 }
 
+//Custom fonts
+@font-face {
+   font-family: Proxima-Nova;
+   src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+   font-weight: 400;
+}
+@font-face {
+   font-family: Proxima-Nova;
+   src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+   font-weight: 600;
+}
+@font-face {
+   font-family: Proxima-Nova;
+   src: url('/assets/fonts/Proxima-Nova-Bold.woff');
+   font-weight: 700;
+}
+@font-face {
+   font-family: Sofiapro;
+   src: url('/assets/fonts/sofiapro-bold.woff2');
+   font-weight: 700;
+}
 input,
 button {
    border: none;

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import TippyHeadless from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-   faMagnifyingGlass,
    faSpinner,
    faCircleXmark,
    faPlus,
@@ -10,7 +12,6 @@ import {
    faLanguage,
    faCircleQuestion,
    faKeyboard,
-   faCloudUpload,
    faUser,
    faCoins,
    faGear,
@@ -19,14 +20,12 @@ import {
 
 import styles from './Header.module.scss';
 import images from '~/assets/images/images';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
-import TippyHeadless from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import AccountItem from '~/component/AccountItem';
 import Button from '~/component/Button';
 import Menu from '~/component/Popper/Menu';
-
+import { InBoxIcon, MessageIcon, SearchIcon } from '~/component/Icon';
+import Image from '~/component/Image';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -83,9 +82,10 @@ const userMenu = [
 ];
 function Header() {
    const [results, setReSults] = useState([]);
-   // useEffect(() => {
-   //    setReSults([1, 2, 4]);
-   // }, []);
+
+   useEffect(() => {
+      setReSults([]);
+   }, []);
 
    const currentUser = true;
    const handleOnChange = (menuItem) => {
@@ -128,17 +128,28 @@ function Header() {
                      <FontAwesomeIcon icon={faCircleXmark} />
                   </button>
                   <button className={cx('search-btn')}>
-                     <FontAwesomeIcon icon={faMagnifyingGlass} />
+                     <SearchIcon />
                   </button>
                </div>
             </TippyHeadless>
             <div className={cx('actions')}>
                {currentUser ? (
-                  <Tippy content="Upload video" placement="bottom" trigger="click">
-                     <button className={cx('action-btn')}>
-                        <FontAwesomeIcon icon={faCloudUpload} />
-                     </button>
-                  </Tippy>
+                  <>
+                     <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Upload
+                     </Button>
+                     <Tippy content="Messages" placement="bottom">
+                        <button className={cx('action-btn')}>
+                           <MessageIcon />
+                        </button>
+                     </Tippy>
+                     <Tippy content="InBox" placement="bottom">
+                        <button className={cx('action-btn')}>
+                           <InBoxIcon />
+                           <sup className={cx('numbers-inbox')}>1</sup>
+                        </button>
+                     </Tippy>
+                  </>
                ) : (
                   <>
                      <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
@@ -149,8 +160,8 @@ function Header() {
                )}
                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleOnChange}>
                   {currentUser ? (
-                     <img
-                        src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/eb05d659d29530f9093586872cdf8c50~c5_100x100.jpeg?x-expires=1662087600&x-signature=AEUj4DSXuaGQk%2FuomcnMxDpeNaA%3D"
+                     <Image
+                        src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f0a910d5bb95287c087454681e4db70f~c5_100x100.jpeg?x-expires=1662624000&x-signature=413pCy154cqlKp0aqXqbfR2y%2FnA%3D"
                         alt="NguyenVanA"
                         className={cx('user-avatar')}
                      />

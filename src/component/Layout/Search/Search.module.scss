@@ -41,12 +41,26 @@
    font-weight: 600;
    color: rgba(22, 24, 35, 0.5);
 }
+.clear {
+   cursor: pointer;
+}
 .clear,
 .loading {
    position: absolute;
    top: 50%;
    right: calc(var(--btn-width) + 16px);
    transform: translateY(-50%);
+}
+.loading {
+   animation: spiner 0.8s linear infinite;
+}
+@keyframes spiner {
+   from {
+      transform: translateY(-50%) rotate(0);
+   }
+   to {
+      transform: translateY(-50%) rotate(360deg);
+   }
 }
 .search-btn {
    width: var(--btn-width);

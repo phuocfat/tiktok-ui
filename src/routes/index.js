@@ -3,7 +3,7 @@ import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Search from '~/pages/Search';
 import UpLoad from '~/pages/UpLoad';
-
+import Profile from '~/pages/Profile';
 export const publicRoute = [
    {
       path: '/',
@@ -19,6 +19,11 @@ export const publicRoute = [
       path: '/search',
       component: Search,
       layout: HeaderOnly,
+   },
+   {
+      path: '/@:nickname',
+      component: Profile,
+      layout: DefaultLayout,
    },
    {
       path: '/upload',

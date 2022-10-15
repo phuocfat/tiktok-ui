@@ -11,6 +11,7 @@ import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import AccountItem from '~/component/AccountItem';
 import { SearchIcon } from '~/component/Icon';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +23,8 @@ function Search() {
    const [showResult, setShowResult] = useState(true);
 
    const [loading, setLoading] = useState(false);
+
+   const debounced = useDebounce(searchResult, 500);
    const inputRef = useRef();
 
    const handleClear = () => {
@@ -34,12 +37,12 @@ function Search() {
       setShowResult(false);
    };
    useEffect(() => {
-      if (!searchResult.trim()) {
+      if (!debounced.trim()) {
          setReSults([]);
          return;
       }
       setLoading(true);
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchResult)}&type=less`)
+      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
          .then((res) => res.json())
          .then((res) => {
             setReSults(res.data);
@@ -48,7 +51,7 @@ function Search() {
          .catch(() => {
             setLoading(false);
          });
-   }, [searchResult]);
+   }, [debounced]);
 
    return (
       <TippyHeadless

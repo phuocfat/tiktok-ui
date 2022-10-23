@@ -13,6 +13,7 @@ import AccountItem from '~/component/AccountItem';
 import { SearchIcon } from '~/component/Icon';
 import { useDebounce } from '~/hooks';
 
+import * as searchService from '~/Service/search';
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -41,16 +42,13 @@ function Search() {
          setReSults([]);
          return;
       }
-      setLoading(true);
-      fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-         .then((res) => res.json())
-         .then((res) => {
-            setReSults(res.data);
-            setLoading(false);
-         })
-         .catch(() => {
-            setLoading(false);
-         });
+      const fetchApi = async () => {
+         setLoading(true);
+         const res = await searchService.search(debounced);
+         setReSults(res);
+         setLoading(false);
+      };
+      fetchApi();
    }, [debounced]);
 
    return (

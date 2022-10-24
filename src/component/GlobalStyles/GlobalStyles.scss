@@ -1,4 +1,5 @@
 @import 'normalize.css';
+
 :root {
    --primary: red;
    --default-header-width: 1150px;
@@ -7,19 +8,40 @@
    --primary-color: rgba(254, 44, 85, 1);
    --white-color: #fff;
    --default-layout-horizontal-spacer: 23px;
+   --font-family: 'Proxima-Nova', sans-serif;
 }
+
 * {
    padding: 0;
    margin: 0;
    box-sizing: border-box;
 }
+
 html {
    font-size: 62.5%;
 }
+
 body {
-   font-family: 'Proxima-Nova', sans-serif;
+   font-family: var(--font-family);
    --webkit-font-smoothing: antialiased;
    scroll-behavior: smooth;
+   overflow-y: overlay;
+}
+
+//ScrollBar
+html *::-webkit-scrollbar {
+   border-radius: 0;
+   width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+   border-radius: 4px;
+   background-color: rgba(22, 24, 35, .06);
+}
+
+html *::-webkit-scrollbar-track {
+   border-radius: 0;
+   background-color: rgba(0, 0, 0, 0);
 }
 
 //Custom fonts
@@ -28,30 +50,36 @@ body {
    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
    font-weight: 400;
 }
+
 @font-face {
    font-family: Proxima-Nova;
    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
    font-weight: 600;
 }
+
 @font-face {
    font-family: Proxima-Nova;
    src: url('/assets/fonts/Proxima-Nova-Bold.woff');
    font-weight: 700;
 }
+
 @font-face {
    font-family: Sofiapro;
    src: url('/assets/fonts/sofiapro-bold.woff2');
    font-weight: 700;
 }
+
 input,
 button {
    border: none;
    outline: none;
 }
+
 a[href] {
    outline: none;
    text-decoration: none;
 }
+
 //custom tippy tooltips
 body {
    .tippy-box {
@@ -62,13 +90,16 @@ body {
       color: rgb(255, 255, 255);
       background-color: rgba(84, 84, 84, 0.92);
    }
+
    .tippy-content {
       padding: 8px 9px;
    }
+
    .tippy-arrow {
       color: rgba(84, 84, 84, 0.92);
    }
-   .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+
+   .tippy-box[data-placement^='bottom']>.tippy-arrow:before {
       top: -7.75px;
    }
 }

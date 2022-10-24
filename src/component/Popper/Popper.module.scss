@@ -1,4 +1,6 @@
 .wrapper {
+   display: flex;
+   flex-direction: column;
    width: 100%;
    background: rgb(255, 255, 255);
    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
@@ -7,21 +9,4 @@
    box-sizing: border-box;
    max-height: min((100vh - 96px) - 60px, 734px);
    min-height: 100px;
-   overflow: hidden auto;
-}
-
-.wrapper::-webkit-scrollbar {
-   width: 8px; /* width of the entire scrollbar */
-}
-
-.wrapper::-webkit-scrollbar-track {
-   background: transparent; /* color of the tracking area */
-}
-.wrapper::-webkit-scrollbar-thumb {
-   background: linear-gradient(
-      to bottom,
-      rgba(22, 24, 35, 0.238),
-      rgba(22, 24, 35, 0.136)
-   ); /* color of the scroll thumb */
-   border-radius: 20px; /* roundness of the scroll thumb */
 }

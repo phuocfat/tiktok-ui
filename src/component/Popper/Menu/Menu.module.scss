@@ -1,18 +1,26 @@
 .menu-list {
    width: 223px;
+
    .menu-item {
       margin-left: 0px;
    }
 }
+
 .menu-popper {
    padding-bottom: 8px;
 }
+
+.menu-body {
+   overflow-y: auto;
+}
+
 // Menu Item
 .menu-item {
    display: inline-block;
    width: 100%;
    text-align: left;
    height: 42px;
+
    &:hover {
       background: rgba(22, 24, 35, 0.03);
    }
@@ -21,7 +29,9 @@
 .header {
    position: relative;
    height: 50px;
+   flex-shrink: 0;
 }
+
 .back-btn {
    width: 50px;
    height: 100%;
@@ -29,6 +39,7 @@
    background-color: transparent;
    cursor: pointer;
 }
+
 .header-title {
    position: absolute;
    font-size: 1.8rem;
@@ -37,6 +48,7 @@
    left: 50%;
    transform: translate(-50%, -50%);
 }
+
 //custom tippy border-top
 .separate {
    border-top-left-radius: 0;

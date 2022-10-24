@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+import configRoutes from '~/config/routes';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -23,6 +25,7 @@ import Menu from '~/component/Popper/Menu';
 import { InBoxIcon, MessageIcon } from '~/component/Icon';
 import Image from '~/component/Image';
 import Search from '~/component/Layout/Search';
+
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -85,7 +88,9 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <img className={cx('logo')} src={images.logo} />
+            <Link to={configRoutes.home} className={cx('logo-link')}>
+               <img className={cx('logo')} src={images.logo} />
+            </Link>
             <Search />
             <div className={cx('actions')}>
                {currentUser ? (

@@ -1,15 +1,20 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import Tippy from '@tippyjs/react/headless';
+
 import { Wrapper as PopperWrapper } from '~/component/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import { useState } from 'react';
+
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
-function Menu({ items = [], children, onChange = defaultFn }) {
+
+function Menu({ items = [], children, hideOnClick = false, onChange = defaultFn }) {
    const [history, setHistory] = useState([{ data: items }]);
+
    const current = history[history.length - 1];
+
    const renderItems = () => {
       return current.data.map((item, index) => {
          const isParent = !!item.children;
@@ -34,6 +39,7 @@ function Menu({ items = [], children, onChange = defaultFn }) {
          interactive
          offset={[12, 12]}
          delay={[0, 750]}
+         hideOnClick={hideOnClick}
          render={(attts) => (
             <div className={cx('menu-list')} tabIndex={-1} {...attts}>
                <PopperWrapper className={cx('menu-popper')}>
@@ -43,7 +49,7 @@ function Menu({ items = [], children, onChange = defaultFn }) {
                         onBack={() => setHistory((prev) => prev.slice(0, history.length - 1))}
                      />
                   )}
-                  {renderItems()}
+                  <div className={cx('menu-body')}>{renderItems()}</div>
                </PopperWrapper>
             </div>
          )}

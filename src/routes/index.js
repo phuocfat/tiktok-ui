@@ -1,6 +1,6 @@
-import { DefaultLayout, HeaderOnly } from '~/component/Layout';
+import { DefaultLayout, HeaderOnly } from '~/layouts';
 
-import configRoutes from '~/config/routes';
+import config from '~/config/index';
 
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
@@ -9,27 +9,27 @@ import UpLoad from '~/pages/UpLoad';
 import Profile from '~/pages/Profile';
 export const publicRoute = [
    {
-      path: configRoutes.home,
+      path: config.routes.home,
       component: Home,
       layout: DefaultLayout,
    },
    {
-      path: configRoutes.following,
+      path: config.routes.following,
       component: Following,
       layout: DefaultLayout,
    },
    {
-      path: configRoutes.search,
+      path: config.routes.search,
       component: Search,
       layout: HeaderOnly,
    },
    {
-      path: configRoutes.profile,
+      path: config.routes.profile,
       component: Profile,
       layout: DefaultLayout,
    },
    {
-      path: configRoutes.upload,
+      path: config.routes.upload,
       component: UpLoad,
       layout: HeaderOnly,
    },

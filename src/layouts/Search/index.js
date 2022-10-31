@@ -13,7 +13,7 @@ import AccountItem from '~/component/AccountItem';
 import { SearchIcon } from '~/component/Icon';
 import { useDebounce } from '~/hooks';
 
-import * as searchService from '~/Service/search';
+import * as searchService from '~/services/search';
 const cx = classNames.bind(styles);
 
 function Search() {

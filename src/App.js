@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRoute } from '~/routes';
+import { publicRoutes } from '~/routes';
 
 function App() {
    return (
       <Router>
          <div className="App">
             <Routes>
-               {publicRoute.map((route, index) => {
+               {publicRoutes.map((route, index) => {
                   const Page = route.component;
                   const Layout = route.layout;
                   return (

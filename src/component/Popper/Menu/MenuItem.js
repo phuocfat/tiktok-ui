@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import Button from '~/component/Button';
@@ -14,4 +15,8 @@ function MenuItem({ data, onClick }) {
       </Button>
    );
 }
+MenuItem.propTypes = {
+   data: PropTypes.object.isRequired,
+   onClick: PropTypes.func,
+};
 export default MenuItem;

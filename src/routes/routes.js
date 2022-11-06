@@ -7,6 +7,7 @@ import Following from '~/pages/Following';
 import Search from '~/pages/Search';
 import UpLoad from '~/pages/UpLoad';
 import Profile from '~/pages/Profile';
+import Live from '~/pages/Live';
 const publicRoutes = [
    {
       path: config.routes.home,
@@ -16,6 +17,11 @@ const publicRoutes = [
    {
       path: config.routes.following,
       component: Following,
+      layout: DefaultLayout,
+   },
+   {
+      path: config.routes.live,
+      component: Live,
       layout: DefaultLayout,
    },
    {
